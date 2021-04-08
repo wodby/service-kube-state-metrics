@@ -1,5 +1,4 @@
 name: monitoring-kube-state-metrics
 title: Monitoring kube-state-metrics
 type: infrastructure
-hostname: kube-state-metrics
 scalable: false
