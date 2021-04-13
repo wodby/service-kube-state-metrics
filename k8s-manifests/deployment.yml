@@ -15,9 +15,15 @@ spec:
       labels:
         name: kube-state-metrics
     spec:
+      serviceAccountName: kube-state-metrics
       containers:
         - name: kube-state-metrics
           image: k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0-beta
+          ports:
+            - containerPort: 8080
+              name: http-metrics
+            - containerPort: 8081
+              name: telemetry
           securityContext:
             runAsUser: 65534
           resources:
@@ -27,11 +33,6 @@ spec:
             limits:
               cpu: "200m"
               memory: "300Mi"
-          ports:
-            - containerPort: 8080
-              name: http-metrics
-            - containerPort: 8081
-              name: telemetry
           readinessProbe:
             httpGet:
               path: /
@@ -44,4 +45,3 @@ spec:
               port: 8080
             initialDelaySeconds: 5
             timeoutSeconds: 5
-      serviceAccountName: kube-state-metrics
