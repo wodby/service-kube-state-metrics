@@ -9,7 +9,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: kube-state-metrics
+      name: kube-state-metrics
   template:
     metadata:
       labels:
