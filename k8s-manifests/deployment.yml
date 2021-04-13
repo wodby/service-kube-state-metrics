@@ -22,11 +22,11 @@ spec:
             runAsUser: 65534
           resources:
             requests:
-              cpu: "100m"
+              cpu: "50m"
               memory: "100Mi"
             limits:
-              cpu: "500m"
-              memory: "500Mi"
+              cpu: "200m"
+              memory: "300Mi"
           ports:
             - containerPort: 8080
               name: http-metrics
