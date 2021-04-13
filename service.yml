@@ -2,3 +2,12 @@ name: monitoring-kube-state-metrics
 title: Monitoring kube-state-metrics
 type: infrastructure
 scalable: false
+containers:
+  - name: kube-state-metrics
+    resources:
+      request:
+        cpu: 50
+        memory: 100
+      limit:
+        cpu: 200
+        memory: 300
