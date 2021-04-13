@@ -6,10 +6,10 @@ metadata:
   labels:
     name: kube-state-metrics
 spec:
-  clusterIP: None
+  selector:
+    name: kube-state-metrics
   ports:
     - name: http-metrics
       port: 8080
       targetPort: http-metrics
-  selector:
-    app.kubernetes.io/name: kube-state-metrics
+  clusterIP: None
