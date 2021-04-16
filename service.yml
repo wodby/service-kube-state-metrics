@@ -7,7 +7,7 @@ containers:
     resources:
       request:
         cpu: 50
-        memory: 100
+        memory: 80
       limit:
         cpu: 200
-        memory: 300
+        memory: 200
