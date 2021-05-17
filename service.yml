@@ -4,7 +4,3 @@ type: infrastructure
 scalable: false
 containers:
   - name: kube-state-metrics
-    resources:
-      limit:
-        cpu: 200
-        memory: 200
