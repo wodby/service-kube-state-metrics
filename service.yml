@@ -2,5 +2,3 @@ name: monitoring-kube-state-metrics
 title: Monitoring kube-state-metrics
 type: infrastructure
 scalable: false
-containers:
-  - name: kube-state-metrics
