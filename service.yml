@@ -5,7 +5,3 @@ scalable: false
 hostname: kube-state-metrics
 containers:
 - name: kube-state-metrics
-  resources:
-    request:
-      memory: 128
-      cpu: 100
