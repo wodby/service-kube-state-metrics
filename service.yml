@@ -1,5 +1,5 @@
 name: kube-state-metrics
-title: kube-state-metrics
+title: Kube state metrics
 type: infrastructure
 scalable: false
 hostname: kube-state-metrics
