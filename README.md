@@ -1,1 +1,1 @@
-# service-monitoring-kube-state-metrics
+# Kube state metrics service
