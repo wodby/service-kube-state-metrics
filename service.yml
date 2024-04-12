@@ -5,3 +5,9 @@ scalable: false
 hostname: kube-state-metrics
 containers:
 - name: kube-state-metrics
+
+helm:
+  name: prometheus-community
+  source: https://prometheus-community.github.io/helm-charts
+  chart: prometheus-community/kube-state-metrics
+  version: 5.18.1
