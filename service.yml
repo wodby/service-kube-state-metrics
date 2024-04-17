@@ -16,3 +16,8 @@ helm:
     annotations: podAnnotations
     labels: labels
     resources: resources
+  values:
+  - name: prometheus-pushgateway.enabled
+    value: false
+  - name: alertmanager.enabled
+    value: false
