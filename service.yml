@@ -3,18 +3,21 @@ title: Kube state metrics
 type: infrastructure
 icon: prometheus
 scalable: false
-containers:
-- name: kube-state-metrics
-
 helm:
   name: prometheus-community
   source: https://prometheus-community.github.io/helm-charts
   chart: prometheus-community/kube-state-metrics
   version: 7.2.2
-  configurations:
-  - container: kube-state-metrics
-    annotations: podAnnotations
-    labels: labels
-    resources: resources
-    env: env
+workloads:
+- id: main
+  kind: deployment
+  primary: true
+  containers:
+  - name: kube-state-metrics
 
+    helm:
+      resources: resources
+      env: env
+  helm:
+    labels: labels
+    annotations: podAnnotations
