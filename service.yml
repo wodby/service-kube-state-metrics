@@ -8,16 +8,16 @@ helm:
   source: https://prometheus-community.github.io/helm-charts
   chart: prometheus-community/kube-state-metrics
   version: 7.2.2
+
 workloads:
 - id: main
   kind: deployment
   primary: true
-  containers:
-  - name: kube-state-metrics
-
-    helm:
-      resources: resources
-      env: env
   helm:
     labels: labels
     annotations: podAnnotations
+  containers:
+  - name: kube-state-metrics
+    helm:
+      resources: resources
+      env: env
