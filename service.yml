@@ -10,7 +10,10 @@ helm:
   version: 7.2.2
 
 workloads:
-- id: main
+- name: main
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: '{{service.helm.release}}'
   kind: deployment
   primary: true
   helm:
