@@ -1,12 +1,19 @@
-# Kube state metrics service for Wodby
+# Kube state metrics Kubernetes system service for Wodby
 
-Use Kube state metrics as a reusable component in applications managed by Wodby.
-This repository contains the service manifests and referenced files used by the
-public Kube state metrics service in the Wodby catalog.
+Kube State Metrics exposes Kubernetes object state used by the Wodby cluster
+monitoring pipeline.
 
-- [Kube state metrics service in the Wodby catalog](https://wodby.com/services/kube-state-metrics)
+This repository defines the Wodby service manifests and operational
+configuration for Kube state metrics.
+
+- [Wodby Kubernetes platform](https://wodby.com)
 - [Wodby service documentation](https://wodby.com/docs/2.0/services/)
 - [Service manifest reference](https://wodby.com/docs/2.0/services/template/)
+
+## Wodby system stacks using this service
+
+- [Metrics system stack](https://github.com/wodby/stack-metrics)
+- [Monitoring system stack](https://github.com/wodby/stack-monitoring)
 
 ## Service overview
 
@@ -18,40 +25,24 @@ public Kube state metrics service in the Wodby catalog.
 | Containers | `kube-state-metrics` |
 | Helm | chart `prometheus-community/kube-state-metrics`; version `7.8.1` |
 
-## Use this service
+## Role in Wodby infrastructure
 
-A service is a reusable component and does not deploy by itself. Add the public
-catalog service to a stack, configure its required links and settings, publish
-the stack, and then create or upgrade an app instance.
+Wodby installs this service through a Kubernetes system stack when it is
+required by the cluster provider or selected infrastructure configuration. It
+runs as a cluster-owned system app and is not offered as a user-deployable
+application service.
 
-To maintain your own version of this service:
+## Platform maintenance
 
-1. Fork this repository.
-2. Edit the service manifest and any files it references.
-3. Import the repository as a
-   [Git-backed service](https://wodby.com/docs/2.0/services/create/#create-a-git-backed-service).
-4. Reference `kube-state-metrics` from your stack manifest.
+Changes to this repository can affect cluster provisioning, upgrades,
+networking, or observability. Coordinate manifest and Helm changes with every
+dependent system stack and preserve service, workload, endpoint, config, and
+volume identifiers.
 
-Wodby imports the manifest and referenced files from the selected Git branch or
-tag and creates a new service revision when the Git-backed service is updated.
-
-## Customize the service
-
-Common changes include adjusting versions, images, Helm chart settings, build
-inputs, environment variables, links, storage, resources, and operational
-workflows supported by the manifest.
-
-Keep service, workload, container, endpoint, link, volume, config, and
-derivative names stable unless dependent stacks and app-level overrides are
-updated at the same time. These names are part of the contract consumed by
-downstream manifests.
-
-Validate customized manifests with the Wodby CLI before importing them:
+Wodby platform maintainers can validate the manifests with:
 
 ```bash
 wodby service validate-manifest service.yml --org <org-id>
 ```
 
-See the [service manifest reference](https://wodby.com/docs/2.0/services/template/)
-for every supported field and the [managed services
-index](https://github.com/wodby/services) for more service examples.
+See the [service manifest reference](https://wodby.com/docs/2.0/services/template/) and the [managed services index](https://github.com/wodby/services).
