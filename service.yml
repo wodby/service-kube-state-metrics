@@ -21,6 +21,8 @@ workloads:
     annotations: podAnnotations
   containers:
   - name: kube-state-metrics
+    resources:
+      preset: nano
     helm:
       resources: resources
       env: env
